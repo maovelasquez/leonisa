@@ -9,6 +9,7 @@ import static org.junit.Assert.*;
 public class CategoriaTest {
     private Categoria ca;
 
+
     @Before
     public void setUp() throws Exception {
         ca = new Categoria("bra","32","Blanco","Licra");
