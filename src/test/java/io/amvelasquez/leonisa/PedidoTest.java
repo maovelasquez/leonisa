@@ -4,10 +4,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import java.util.ArrayList;
-
 import static org.junit.Assert.*;
-
 import java.util.Vector;
+
 public class PedidoTest {
 
     Vector<Object> pedido;
@@ -24,9 +23,9 @@ public class PedidoTest {
     @Before
     public void setUp() throws Exception {
         pedido = new Vector<Object>();
-        pedidoLeonisa = new Pedido (5);
-        pedidoLeo=new Pedido(8);
-        pedidoTeen= new Pedido(1);
+        pedidoLeonisa = new Pedido (5,"Efectivo",0,0);
+        pedidoLeo = new Pedido(8);
+        pedidoTeen = new Pedido(1);
         Pedido p = new Pedido();
 
         leonisa = new Leonisa("01", 25000, "medias", "m", "Negro", "Algodón");
@@ -43,7 +42,6 @@ public class PedidoTest {
     public void asignarProducto() {
         boolean asignadoLeonisa = pedido.contains(leonisa);
         Assert.assertTrue("No se ha asignado un producto 'Leonisa' al pedido", asignadoLeonisa);
-
     }
 
     @Test
@@ -56,6 +54,23 @@ public class PedidoTest {
     public void testAsignarProducto1() {
         boolean asignadoTeen = pedido.contains(teen);
         Assert.assertTrue("No se ha asignado un producto 'Teen' al pedido", asignadoTeen);
+    }
+
+    @Test
+    public void totalCompraTestLeonisa() {
+        Assert.assertEquals("El total de la compra no es el esperado", 70000, pedidoLeonisa.totalCompra(leonisa.getPrecio()), 0);
+
+    }
+
+    @Test
+    public void testTotalCompraTestLeo() {
+        Assert.assertEquals("El total de la compra no es el esperado", 45000, pedidoLeo.totalCompra(leo.getPrecio()), 0);
+    }
+
+    @Test
+    public void testTotalCompraTestTeen() {
+        Assert.assertEquals("El total de la compra no es el esperado", 50000, pedidoTeen.totalCompra(teen.getPrecio()), 0);
+
     }
 }
 
