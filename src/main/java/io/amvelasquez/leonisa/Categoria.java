@@ -16,7 +16,6 @@ public class Categoria {
     }
 
     public String getTalla() {
-
         return talla;
     }
 
